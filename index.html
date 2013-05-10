@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="index.js"></script>
+	<link rel="stylesheet" href="css/styles.css" />
+	<title> whichCar</title>
+	</head>
+	<body>
+		<div class="app" id="wrapper">
+			<header>
+				<div class="logo">whichCar</div>
+			</header>
+			<section>
+				<input type="text" id="make" name="make" />
+				<input type="text" id="model" name="model" />
+				<button onclick="clicked()">Send</button>
+			</section>
+		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+		var socket = io.connect(document.location.protocol+'//'+document.location.host);
+		function clicked(){
+			$(function(){
+				var makeInput=$('.app').find('#make').val();
+				var modelInput=$('.app').find('#model').val();
+				socket.emit('make', makeInput);
+				socket.emit('model', modelInput);
+			});		
+		};
+		</script>
+	</body>	
+</html>

@@ -1,4 +1,4 @@
 The_cheerio-node-express
 ========================
 
-Simple project using node, express, isocket and cheerio
+Simple project using node, express, socket.io and cheerio
